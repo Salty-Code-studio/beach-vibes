@@ -969,3 +969,15 @@ svg.footer-big text{fill:rgba(255,255,255,.055)}
 svg.footer-big text{fill:rgba(255,255,255,.03)}
 @media (max-width:700px){.bx-dark{display:none}}
 @media (max-width:600px){.justin-grid .product-row:first-of-type,.product-row{flex-wrap:wrap}.justin-grid .product-row h3{flex:1 1 100%}.justin-grid .price{font-size:.88rem;opacity:.8}}
+/* menu button: hamburger only (label stays for screen readers) */
+.menu-btn{width:52px;height:52px;min-height:52px;padding:0;justify-content:center;border-radius:50%;gap:0}
+.menu-btn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.menu-btn i{width:22px;height:2px;top:0}
+.menu-btn i::before,.menu-btn i::after{content:"";position:absolute;left:0;width:22px;height:2px;background:currentColor;transition:transform .3s,top .3s,opacity .2s}
+.menu-btn i::before{top:-7px}
+.menu-btn i::after{top:7px}
+.menu-btn[aria-expanded="true"] i{transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] i::before{opacity:0}
+.menu-btn[aria-expanded="true"] i::after{top:0;transform:rotate(-90deg)}
+/* phone: top bar is just the gradient strip */
+@media (max-width:700px){.announce{font-size:0;line-height:0;padding:0;height:12px}}
