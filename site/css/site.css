@@ -967,3 +967,4 @@ svg.footer-big text{fill:rgba(255,255,255,.055)}
 .paper-panel > img{object-position:50% 22%}
 .store-pills-row{justify-content:flex-end;gap:12px 22px}
 svg.footer-big text{fill:rgba(255,255,255,.03)}
+@media (max-width:700px){.bx-dark{display:none}}
