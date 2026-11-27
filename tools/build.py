@@ -10,6 +10,19 @@ ISLAND, KLEIN = (ROOT / "tools/island-paths.txt").read_text().split("\n")[:2]
 WA = "5997009744"
 PAL = json.loads((ROOT / "tools/palette.json").read_text())
 def pc(img, k): return PAL[img][k]
+_AN = json.loads((ROOT / "tools/analytics.json").read_text())
+# PostHog (EU), cookieless. Visits, time on page, country, referrer; ?for=name tags a personal link.
+ANALYTICS = """<script src="js/ph.js?v=1" defer></script>
+<script>
+addEventListener('DOMContentLoaded', function () {
+  if (!window.posthog || !posthog.init) return;
+  var q = new URLSearchParams(location.search).get('for');
+  try { if (q) sessionStorage.setItem('bv-for', q); q = q || sessionStorage.getItem('bv-for'); } catch (e) {}
+  posthog.init('""" + _AN["posthog_token"] + """', { api_host: '""" + _AN["posthog_host"] + """', persistence: 'memory', person_profiles: 'identified_only', disable_surveys: true, capture_pageleave: true });
+  posthog.register({ site: 'beach-vibes-mockup' });
+  if (q) { posthog.register({ recipient: q }); posthog.identify('beachvibes:' + q, { name: q, site: 'beach-vibes-mockup' }); }
+});
+</script>"""
 e = html.escape
 
 # ------------------------------------------------------------------ data
@@ -169,6 +182,7 @@ def head(title, desc, page):
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Raleway:ital,wght@0,300..800;1,300..600&family=Spinnaker&display=swap">
 <link rel="stylesheet" href="css/site.css?v=45">
 <script src="js/site.js?v=16" defer></script>
+{ANALYTICS}
 </head>
 <body data-page="{page}" class="has-hero">
 <a class="skip" href="#main">Skip to content</a>

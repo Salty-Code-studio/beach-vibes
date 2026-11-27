@@ -16,6 +16,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Raleway:ital,wght@0,300..800;1,300..600&family=Spinnaker&display=swap">
 <link rel="stylesheet" href="css/site.css?v=45">
 <script src="js/site.js?v=16" defer></script>
+<script src="js/ph.js?v=1" defer></script>
+<script>
+addEventListener('DOMContentLoaded', function () {
+  if (!window.posthog || !posthog.init) return;
+  var q = new URLSearchParams(location.search).get('for');
+  try { if (q) sessionStorage.setItem('bv-for', q); q = q || sessionStorage.getItem('bv-for'); } catch (e) {}
+  posthog.init('phc_sR76fFDoKtKRAoUWQQjFGCwRdoLHfSHaGitg4WoLi2GC', { api_host: 'https://eu.i.posthog.com', persistence: 'memory', person_profiles: 'identified_only', disable_surveys: true, capture_pageleave: true });
+  posthog.register({ site: 'beach-vibes-mockup' });
+  if (q) { posthog.register({ recipient: q }); posthog.identify('beachvibes:' + q, { name: q, site: 'beach-vibes-mockup' }); }
+});
+</script>
 </head>
 <body data-page="lookbook" class="has-hero">
 <a class="skip" href="#main">Skip to content</a>
