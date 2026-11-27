@@ -981,3 +981,8 @@ svg.footer-big text{fill:rgba(255,255,255,.03)}
 .menu-btn[aria-expanded="true"] i::after{top:0;transform:rotate(-90deg)}
 /* phone: top bar is just the gradient strip */
 @media (max-width:700px){.announce{font-size:0;line-height:0;padding:0;height:12px}}
+/* open menu: the flying hero logo never shows through */
+body.nav-open .hero-logo{visibility:hidden!important;opacity:0!important}
+.mobile-nav a{border-radius:6px}
+.mobile-nav a:focus{outline:none}
+.mobile-nav a:focus-visible{outline:none;text-decoration:underline;text-decoration-color:var(--mint);text-decoration-thickness:2px;text-underline-offset:8px}
