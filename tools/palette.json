@@ -1,0 +1,422 @@
+{
+ "hero-brands": {
+  "dom": "#e9e3e2",
+  "accent": "#d79a64",
+  "deep": "#4f3116",
+  "soft": "#f0eae9",
+  "mid": "#e0c5ad"
+ },
+ "hero-cacti-xl": {
+  "dom": "#cbc7bf",
+  "accent": "#1d210b",
+  "deep": "#434c19",
+  "soft": "#efeeea",
+  "mid": "#d6e0ad"
+ },
+ "hero-cacti": {
+  "dom": "#cac6bf",
+  "accent": "#201e0b",
+  "deep": "#4b471a",
+  "soft": "#efedea",
+  "mid": "#e0dbad"
+ },
+ "hero-home": {
+  "dom": "#8c7b70",
+  "accent": "#8ad6d7",
+  "deep": "#194b4c",
+  "soft": "#f0ecea",
+  "mid": "#addfe0"
+ },
+ "hero-jewelry": {
+  "dom": "#b7c4d2",
+  "accent": "#ae755a",
+  "deep": "#442c21",
+  "soft": "#e8ecf2",
+  "mid": "#dac0b3"
+ },
+ "hero-lookbook": {
+  "dom": "#e9eceb",
+  "accent": "#88b0a5",
+  "deep": "#283d37",
+  "soft": "#eaefed",
+  "mid": "#bbd2cc"
+ },
+ "hero-newin": {
+  "dom": "#878d81",
+  "accent": "#130901",
+  "deep": "#4f2f16",
+  "soft": "#edeeeb",
+  "mid": "#e0c4ad"
+ },
+ "hero-stores": {
+  "dom": "#d8cfc7",
+  "accent": "#87d4d6",
+  "deep": "#194a4c",
+  "soft": "#f1ece9",
+  "mid": "#addee0"
+ },
+ "jw-beads-star": {
+  "dom": "#b7c4d2",
+  "accent": "#ae755a",
+  "deep": "#442c21",
+  "soft": "#e8ecf2",
+  "mid": "#dac0b3"
+ },
+ "jw-bracelets": {
+  "dom": "#c8aa79",
+  "accent": "#c8aa79",
+  "deep": "#48381d",
+  "soft": "#f3eee6",
+  "mid": "#deccaf"
+ },
+ "jw-charms": {
+  "dom": "#d9ddce",
+  "accent": "#a07b54",
+  "deep": "#423323",
+  "soft": "#eff1e9",
+  "mid": "#d8c7b5"
+ },
+ "jw-cuban": {
+  "dom": "#94422d",
+  "accent": "#94422d",
+  "deep": "#4e2217",
+  "soft": "#f3e9e6",
+  "mid": "#e0b7ad"
+ },
+ "jw-earring": {
+  "dom": "#ddab7e",
+  "accent": "#ddab7e",
+  "deep": "#4f3116",
+  "soft": "#f3ece6",
+  "mid": "#e0c5ad"
+ },
+ "jw-handchain": {
+  "dom": "#e9d7c6",
+  "accent": "#dcb290",
+  "deep": "#4d3018",
+  "soft": "#f3ece6",
+  "mid": "#e0c4ad"
+ },
+ "jw-necklace": {
+  "dom": "#d1996b",
+  "accent": "#d1996b",
+  "deep": "#4d3018",
+  "soft": "#f3ece6",
+  "mid": "#e0c4ad"
+ },
+ "lb-01": {
+  "dom": "#c0aea0",
+  "accent": "#1a1406",
+  "deep": "#4f3e16",
+  "soft": "#f1ece8",
+  "mid": "#e0d0ad"
+ },
+ "lb-02": {
+  "dom": "#e4e5eb",
+  "accent": "#99b361",
+  "deep": "#394421",
+  "soft": "#e9eaf0",
+  "mid": "#cedab3"
+ },
+ "lb-03": {
+  "dom": "#6d8ca4",
+  "accent": "#bb9b77",
+  "deep": "#443422",
+  "soft": "#e8edf2",
+  "mid": "#d9c8b4"
+ },
+ "lb-04": {
+  "dom": "#63aad9",
+  "accent": "#63aad9",
+  "deep": "#16384f",
+  "soft": "#e6eef3",
+  "mid": "#adcce0"
+ },
+ "lb-05": {
+  "dom": "#a34a2e",
+  "accent": "#a34a2e",
+  "deep": "#4f2416",
+  "soft": "#f3e9e6",
+  "mid": "#e0b9ad"
+ },
+ "lb-06": {
+  "dom": "#e5dce1",
+  "accent": "#c5523d",
+  "deep": "#4e1f17",
+  "soft": "#f0e9ed",
+  "mid": "#e0b5ad"
+ },
+ "lb-07": {
+  "dom": "#e9e3e2",
+  "accent": "#d79a64",
+  "deep": "#4f3116",
+  "soft": "#f0eae9",
+  "mid": "#e0c5ad"
+ },
+ "lb-08": {
+  "dom": "#b8a17c",
+  "accent": "#714528",
+  "deep": "#4b2e1a",
+  "soft": "#f3eee6",
+  "mid": "#e0c1ad"
+ },
+ "lb-09": {
+  "dom": "#a6613a",
+  "accent": "#a6613a",
+  "deep": "#4b2c1a",
+  "soft": "#f3ebe6",
+  "mid": "#e0bfad"
+ },
+ "lb-10": {
+  "dom": "#77b1d9",
+  "accent": "#77b1d9",
+  "deep": "#16384f",
+  "soft": "#e6eef3",
+  "mid": "#adcbe0"
+ },
+ "lb-11": {
+  "dom": "#de9b62",
+  "accent": "#de9b62",
+  "deep": "#4f3016",
+  "soft": "#f3ece6",
+  "mid": "#e0c4ad"
+ },
+ "lb-12": {
+  "dom": "#94a6b9",
+  "accent": "#9a593e",
+  "deep": "#482a1d",
+  "soft": "#e8edf1",
+  "mid": "#debdaf"
+ },
+ "lb-13": {
+  "dom": "#e0dedc",
+  "accent": "#464f2d",
+  "deep": "#394025",
+  "soft": "#efedeb",
+  "mid": "#ced6b7"
+ },
+ "lb-14": {
+  "dom": "#3b2611",
+  "accent": "#90542f",
+  "deep": "#4c2c19",
+  "soft": "#f3ede6",
+  "mid": "#e0c0ad"
+ },
+ "lb-15": {
+  "dom": "#47412a",
+  "accent": "#ae723c",
+  "deep": "#4b311a",
+  "soft": "#f2f0e7",
+  "mid": "#e0c5ad"
+ },
+ "lb-16": {
+  "dom": "#eccfb2",
+  "accent": "#eccfb2",
+  "deep": "#4f3316",
+  "soft": "#f3ede6",
+  "mid": "#e0c6ad"
+ },
+ "lb-17": {
+  "dom": "#e5e8e7",
+  "accent": "#88b0a5",
+  "deep": "#283d37",
+  "soft": "#ebefed",
+  "mid": "#bbd2cc"
+ },
+ "lb-18": {
+  "dom": "#e3d7c1",
+  "accent": "#e67f89",
+  "deep": "#4f161c",
+  "soft": "#f3eee6",
+  "mid": "#e0adb2"
+ },
+ "lb-19": {
+  "dom": "#e9e9ed",
+  "accent": "#7db0d7",
+  "deep": "#18364e",
+  "soft": "#eaeaef",
+  "mid": "#adcae0"
+ },
+ "lb-20": {
+  "dom": "#eae8ec",
+  "accent": "#bb8777",
+  "deep": "#442a22",
+  "soft": "#edeaef",
+  "mid": "#d9bdb4"
+ },
+ "lb-21": {
+  "dom": "#6c7878",
+  "accent": "#0f140b",
+  "deep": "#314124",
+  "soft": "#ebeeee",
+  "mid": "#c5d7b6"
+ },
+ "lb-22": {
+  "dom": "#ab7159",
+  "accent": "#ab7159",
+  "deep": "#432c22",
+  "soft": "#f3eae6",
+  "mid": "#d9bfb4"
+ },
+ "lb-23": {
+  "dom": "#25200e",
+  "accent": "#1c1607",
+  "deep": "#4f3f16",
+  "soft": "#f3f0e6",
+  "mid": "#e0d1ad"
+ },
+ "lb-24": {
+  "dom": "#bc6745",
+  "accent": "#c64531",
+  "deep": "#4f1e16",
+  "soft": "#f3eae6",
+  "mid": "#e0b4ad"
+ },
+ "lb-25": {
+  "dom": "#6b9bb9",
+  "accent": "#6b9bb9",
+  "deep": "#203745",
+  "soft": "#e6eef3",
+  "mid": "#b2cbda"
+ },
+ "lb-26": {
+  "dom": "#d5d0d3",
+  "accent": "#29658e",
+  "deep": "#16384f",
+  "soft": "#efebed",
+  "mid": "#adcbe0"
+ },
+ "lb-27": {
+  "dom": "#ecefee",
+  "accent": "#ab7d59",
+  "deep": "#433022",
+  "soft": "#eaefed",
+  "mid": "#d9c4b4"
+ },
+ "lb-28": {
+  "dom": "#9295ac",
+  "accent": "#59372e",
+  "deep": "#432922",
+  "soft": "#e9eaf0",
+  "mid": "#d8bcb5"
+ },
+ "lb-29": {
+  "dom": "#e6e8e7",
+  "accent": "#935d37",
+  "deep": "#4a2e1b",
+  "soft": "#ebeeed",
+  "mid": "#e0c2ad"
+ },
+ "lb-30": {
+  "dom": "#dc4664",
+  "accent": "#dc4664",
+  "deep": "#4f1622",
+  "soft": "#f3e6e9",
+  "mid": "#e0adb7"
+ },
+ "salty-boys": {
+  "dom": "#efeded",
+  "accent": "#6c5443",
+  "deep": "#3e3027",
+  "soft": "#efebeb",
+  "mid": "#d4c4b9"
+ },
+ "salty-shirt": {
+  "dom": "#160f04",
+  "accent": "#160f04",
+  "deep": "#4f3916",
+  "soft": "#f3eee6",
+  "mid": "#e0ccad"
+ },
+ "salty-truck": {
+  "dom": "#d5dae1",
+  "accent": "#20140b",
+  "deep": "#4b2f1a",
+  "soft": "#e9ecf1",
+  "mid": "#e0c3ad"
+ },
+ "store-front-xl": {
+  "dom": "#ece5d2",
+  "accent": "#d2ba9b",
+  "deep": "#46351f",
+  "soft": "#f3f0e6",
+  "mid": "#dcc9b1"
+ },
+ "store-front": {
+  "dom": "#ece5d2",
+  "accent": "#d2ba9b",
+  "deep": "#46351f",
+  "soft": "#f3f0e6",
+  "mid": "#dcc9b1"
+ },
+ "store-playa": {
+  "dom": "#d8cfc7",
+  "accent": "#87d4d6",
+  "deep": "#194a4c",
+  "soft": "#f1ece9",
+  "mid": "#addee0"
+ },
+ "store-sorobon": {
+  "dom": "#a2afae",
+  "accent": "#7a5845",
+  "deep": "#412e24",
+  "soft": "#eaefef",
+  "mid": "#d6c2b7"
+ },
+ "vans-checker": {
+  "dom": "#eeebec",
+  "accent": "#140e07",
+  "deep": "#4b341a",
+  "soft": "#efeaec",
+  "mid": "#e0c8ad"
+ },
+ "vans-era": {
+  "dom": "#b57f47",
+  "accent": "#b57f47",
+  "deep": "#49331c",
+  "soft": "#f3ede6",
+  "mid": "#dfc7ae"
+ },
+ "vans-knu-close": {
+  "dom": "#878d81",
+  "accent": "#130901",
+  "deep": "#4f2f16",
+  "soft": "#edeeeb",
+  "mid": "#e0c4ad"
+ },
+ "vans-knu-kids": {
+  "dom": "#ebebeb",
+  "accent": "#81464f",
+  "deep": "#422328",
+  "soft": "#eeecec",
+  "mid": "#d7b6bb"
+ },
+ "vans-knu-skool": {
+  "dom": "#efefef",
+  "accent": "#f0f1f2",
+  "deep": "#2f3336",
+  "soft": "#eeecec",
+  "mid": "#c2c6ca"
+ },
+ "vans-knu-stacked": {
+  "dom": "#e8e5e6",
+  "accent": "#dad2d4",
+  "deep": "#372e30",
+  "soft": "#efebec",
+  "mid": "#ccc1c4"
+ },
+ "vans-slipon": {
+  "dom": "#f1f1f1",
+  "accent": "#a26875",
+  "deep": "#3f262c",
+  "soft": "#eeecec",
+  "mid": "#d4b9bf"
+ },
+ "vans-socks": {
+  "dom": "#bb8453",
+  "accent": "#bb8453",
+  "deep": "#49311c",
+  "soft": "#f3ece6",
+  "mid": "#dfc5ae"
+ }
+}
