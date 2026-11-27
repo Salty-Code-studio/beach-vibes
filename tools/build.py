@@ -16,11 +16,23 @@ ANALYTICS = """<script src="js/ph.js?v=1" defer></script>
 <script>
 addEventListener('DOMContentLoaded', function () {
   if (!window.posthog || !posthog.init) return;
+  var off = false;
+  try { off = localStorage.getItem('bv-optout') === '1'; } catch (e) {}
+  if (off || navigator.doNotTrack === '1' || window.doNotTrack === '1' || navigator.globalPrivacyControl) return;
   var q = new URLSearchParams(location.search).get('for');
   try { if (q) sessionStorage.setItem('bv-for', q); q = q || sessionStorage.getItem('bv-for'); } catch (e) {}
-  posthog.init('""" + _AN["posthog_token"] + """', { api_host: '""" + _AN["posthog_host"] + """', persistence: 'memory', person_profiles: 'identified_only', disable_surveys: true, capture_pageleave: true });
+  posthog.init('""" + _AN["posthog_token"] + """', { api_host: '""" + _AN["posthog_host"] + """', persistence: 'memory', person_profiles: 'identified_only', disable_surveys: true, disable_session_recording: true, capture_pageleave: true, property_denylist: ['$ip'] });
   posthog.register({ site: 'beach-vibes-mockup' });
-  if (q) { posthog.register({ recipient: q }); posthog.identify('beachvibes:' + q, { name: q, site: 'beach-vibes-mockup' }); }
+  if (q) {
+    posthog.register({ recipient: q }); posthog.identify('beachvibes:' + q, { name: q, site: 'beach-vibes-mockup' });
+    var seen = false; try { seen = sessionStorage.getItem('bv-note') === '1'; } catch (e) {}
+    if (!seen) {
+      var n = document.createElement('div'); n.className = 'link-note'; n.setAttribute('role', 'status');
+      n.innerHTML = '<p>This is your personal preview link, so we can see when it is opened and which pages are viewed. <a href="privacy.html">How we handle this</a></p><button type="button" aria-label="Close">×</button>';
+      n.querySelector('button').onclick = function () { n.remove(); try { sessionStorage.setItem('bv-note', '1'); } catch (e) {} };
+      document.body.appendChild(n);
+    }
+  }
 });
 </script>"""
 e = html.escape
@@ -180,7 +192,7 @@ def head(title, desc, page):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Raleway:ital,wght@0,300..800;1,300..600&family=Spinnaker&display=swap">
-<link rel="stylesheet" href="css/site.css?v=45">
+<link rel="stylesheet" href="css/site.css?v=46">
 <script src="js/site.js?v=16" defer></script>
 {ANALYTICS}
 </head>
@@ -237,7 +249,8 @@ def foot():
         <li><a href="http://instagram.com/BEACHVIBESSURFSHOP">Follow us on Instagram</a></li>
       </ul></div>
     </div>
-    <div class="footer-bottom"><span>© <span data-year>2026</span> Beachvibes Surfshop, Bonaire</span><span>Concept by Salty Code Studio</span></div>
+    <p class="footer-legal">Design concept by Salty Code Studio for Beachvibes Surfshop. This is a preview, not the official Beachvibes website: nothing is sold or booked here. Brand names and logos belong to their owners and show the labels the stores carry. This preview counts visits with privacy-friendly analytics, without cookies. <a href="privacy.html">Privacy</a></p>
+    <div class="footer-bottom"><span>© <span data-year>2026</span> Beachvibes Surfshop, Bonaire</span><span>Concept by Salty Code Studio · <a href="privacy.html">Privacy</a></span></div>
   </div>
 </footer>
 </body>
@@ -547,6 +560,7 @@ def page_index():
       <label class="sr-only" for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="Email address" autocomplete="email" required aria-describedby="f-email-err">
       <button class="btn" type="submit">Sign me up</button>
       <span class="error" id="f-email-err" data-email-error hidden></span>
+      <p class="form-demo">Preview only: this form doesn't send or store anything yet.</p>
     </form>
   </div></div>
 </section>
@@ -745,7 +759,46 @@ def page_stores():
 </div></section>
 """ + foot()
 
-PAGES = {"index.html": page_index, "new-in.html": page_new, "lookbook.html": page_lookbook, "jewelry.html": page_jewelry, "brands.html": page_brands, "stores.html": page_stores}
+
+def page_privacy():
+    return head("Privacy | Beachvibes preview", "How this Beachvibes website preview handles visit data.", "privacy").replace('class="has-hero"', 'class="no-hero"', 1) + """
+<section class="section legal" aria-labelledby="pv-h"><div class="wrap legal-wrap">
+  <h1 id="pv-h" class="display h2">Privacy.</h1>
+  <p class="lede">This website is a design preview made by Salty Code Studio for Beachvibes Surfshop. It is not the official Beachvibes website and nothing is sold here.</p>
+
+  <h2>Who is responsible</h2>
+  <p>Salty Code Studio is responsible for the data collected on this preview. Questions or requests: <a href="mailto:info@saltycodestudio.com">info@saltycodestudio.com</a>.</p>
+
+  <h2>What we collect, and why</h2>
+  <p>We use PostHog, an analytics service with servers in the EU, to see how the preview is used: which pages are opened, for how long, the approximate country and city, the type of device and browser, and the page you came from. We use this to follow up on the design and improve it. We do not store your IP address.</p>
+  <p>If you opened a personal link (one ending in <code>?for=</code> and a name), visits are linked to that name, so we know the person we sent it to has seen the preview. We tell you this when the link opens.</p>
+  <p>Our legal basis is legitimate interest: presenting and improving a design proposal.</p>
+
+  <h2>No cookies, no recordings</h2>
+  <p>This preview sets no cookies and stores nothing on your device for analytics. We do not record sessions. The sign-up form is a demo and sends nothing.</p>
+
+  <h2>How long we keep it</h2>
+  <p>Visit data is kept for as long as the design project runs and deleted within 12 months.</p>
+
+  <h2>Your choices and rights</h2>
+  <p>If your browser sends a Do Not Track or Global Privacy Control signal, nothing is counted. You can also switch analytics off for this browser:</p>
+  <p><button class="btn" type="button" data-optout>Turn off analytics</button> <span class="small" data-optout-state role="status"></span></p>
+  <p>You can ask us to see, correct or delete data about you, or object to its use, by emailing <a href="mailto:info@saltycodestudio.com">info@saltycodestudio.com</a>. You can also complain to your data protection authority.</p>
+
+  <h2>Brands and photos</h2>
+  <p>Brand names and logos belong to their owners. They are shown only to illustrate the labels Beachvibes and Salty Crew Bonaire carry. Photos are shown only to preview the design and remain the property of their owners.</p>
+</div></section>
+<script>
+(function () {
+  var b = document.querySelector('[data-optout]'), s = document.querySelector('[data-optout-state]');
+  function show() { var off = false; try { off = localStorage.getItem('bv-optout') === '1'; } catch (e) {} b.textContent = off ? 'Turn analytics back on' : 'Turn off analytics'; s.textContent = off ? 'Analytics is off in this browser.' : ''; }
+  b.addEventListener('click', function () { try { var off = localStorage.getItem('bv-optout') === '1'; if (off) localStorage.removeItem('bv-optout'); else { localStorage.setItem('bv-optout', '1'); if (window.posthog && posthog.opt_out_capturing) posthog.opt_out_capturing(); } } catch (e) {} show(); });
+  show();
+})();
+</script>
+""" + foot()
+
+PAGES = {"index.html": page_index, "new-in.html": page_new, "lookbook.html": page_lookbook, "jewelry.html": page_jewelry, "brands.html": page_brands, "stores.html": page_stores, "privacy.html": page_privacy}
 for name, fn in PAGES.items():
     (SITE / name).write_text(fn(), encoding="utf-8")
 (SITE / "robots.txt").write_text("User-agent: *\nDisallow: /\n")

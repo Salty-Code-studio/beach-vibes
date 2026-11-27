@@ -14,17 +14,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Raleway:ital,wght@0,300..800;1,300..600&family=Spinnaker&display=swap">
-<link rel="stylesheet" href="css/site.css?v=45">
+<link rel="stylesheet" href="css/site.css?v=46">
 <script src="js/site.js?v=16" defer></script>
 <script src="js/ph.js?v=1" defer></script>
 <script>
 addEventListener('DOMContentLoaded', function () {
   if (!window.posthog || !posthog.init) return;
+  var off = false;
+  try { off = localStorage.getItem('bv-optout') === '1'; } catch (e) {}
+  if (off || navigator.doNotTrack === '1' || window.doNotTrack === '1' || navigator.globalPrivacyControl) return;
   var q = new URLSearchParams(location.search).get('for');
   try { if (q) sessionStorage.setItem('bv-for', q); q = q || sessionStorage.getItem('bv-for'); } catch (e) {}
-  posthog.init('phc_sR76fFDoKtKRAoUWQQjFGCwRdoLHfSHaGitg4WoLi2GC', { api_host: 'https://eu.i.posthog.com', persistence: 'memory', person_profiles: 'identified_only', disable_surveys: true, capture_pageleave: true });
+  posthog.init('phc_sR76fFDoKtKRAoUWQQjFGCwRdoLHfSHaGitg4WoLi2GC', { api_host: 'https://eu.i.posthog.com', persistence: 'memory', person_profiles: 'identified_only', disable_surveys: true, disable_session_recording: true, capture_pageleave: true, property_denylist: ['$ip'] });
   posthog.register({ site: 'beach-vibes-mockup' });
-  if (q) { posthog.register({ recipient: q }); posthog.identify('beachvibes:' + q, { name: q, site: 'beach-vibes-mockup' }); }
+  if (q) {
+    posthog.register({ recipient: q }); posthog.identify('beachvibes:' + q, { name: q, site: 'beach-vibes-mockup' });
+    var seen = false; try { seen = sessionStorage.getItem('bv-note') === '1'; } catch (e) {}
+    if (!seen) {
+      var n = document.createElement('div'); n.className = 'link-note'; n.setAttribute('role', 'status');
+      n.innerHTML = '<p>This is your personal preview link, so we can see when it is opened and which pages are viewed. <a href="privacy.html">How we handle this</a></p><button type="button" aria-label="Close">×</button>';
+      n.querySelector('button').onclick = function () { n.remove(); try { sessionStorage.setItem('bv-note', '1'); } catch (e) {} };
+      document.body.appendChild(n);
+    }
+  }
 });
 </script>
 </head>
@@ -204,6 +216,7 @@ addEventListener('DOMContentLoaded', function () {
       <label class="sr-only" for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="Email address" autocomplete="email" required aria-describedby="f-email-err">
       <button class="btn" type="submit">Sign me up</button>
       <span class="error" id="f-email-err" data-email-error hidden></span>
+      <p class="form-demo">Preview only: this form doesn't send or store anything yet.</p>
     </form>
   </div></div>
 </section>
@@ -244,7 +257,8 @@ addEventListener('DOMContentLoaded', function () {
         <li><a href="http://instagram.com/BEACHVIBESSURFSHOP">Follow us on Instagram</a></li>
       </ul></div>
     </div>
-    <div class="footer-bottom"><span>© <span data-year>2026</span> Beachvibes Surfshop, Bonaire</span><span>Concept by Salty Code Studio</span></div>
+    <p class="footer-legal">Design concept by Salty Code Studio for Beachvibes Surfshop. This is a preview, not the official Beachvibes website: nothing is sold or booked here. Brand names and logos belong to their owners and show the labels the stores carry. This preview counts visits with privacy-friendly analytics, without cookies. <a href="privacy.html">Privacy</a></p>
+    <div class="footer-bottom"><span>© <span data-year>2026</span> Beachvibes Surfshop, Bonaire</span><span>Concept by Salty Code Studio · <a href="privacy.html">Privacy</a></span></div>
   </div>
 </footer>
 </body>
