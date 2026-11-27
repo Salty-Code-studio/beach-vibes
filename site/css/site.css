@@ -968,3 +968,4 @@ svg.footer-big text{fill:rgba(255,255,255,.055)}
 .store-pills-row{justify-content:flex-end;gap:12px 22px}
 svg.footer-big text{fill:rgba(255,255,255,.03)}
 @media (max-width:700px){.bx-dark{display:none}}
+@media (max-width:600px){.justin-grid .product-row:first-of-type,.product-row{flex-wrap:wrap}.justin-grid .product-row h3{flex:1 1 100%}.justin-grid .price{font-size:.88rem;opacity:.8}}
